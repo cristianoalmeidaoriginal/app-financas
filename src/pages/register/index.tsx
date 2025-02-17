@@ -4,27 +4,28 @@ import { AuthContext } from "../../contexts/auth/auth";
 
 export default function Register() {
 
-    const [nome, setNome] = useState();
+    const [name, setName] = useState();
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
     const { Signup } = useContext(AuthContext);
 
     function handleSignup() {
-        Signup();
+        Signup(name,email,password);
+
 
     }
     return (
         <View style={styles.background}>
             <View style={styles.container}>
                 <View style={styles.areaInput}>
-                    <TextInput style={styles.input} placeholder='nome' value={nome} onChangeText={(text)=>setNome(text)} />
+                    <TextInput style={styles.input} placeholder='nome' value={name} onChangeText={(text)=>setName(text)} />
                 </View>
                 <View style={styles.areaInput}>
-                    <TextInput style={styles.input} placeholder='email' value={email} onChangeText={(text)=>setEmail(text) />
+                    <TextInput style={styles.input} placeholder='email' value={email} onChangeText={(text)=>setEmail(text)} />
                 </View>
                 <View style={styles.areaInput}>
-                    <TextInput style={styles.input} placeholder='senha' value={password}onChangeText={(text)=>setPassword(text) />
+                    <TextInput style={styles.input} placeholder='senha' value={password} onChangeText={(text)=>setPassword(text)} />
                 </View>
                 <TouchableOpacity activeOpacity={0.9} style={styles.buttonRegister} onPress={handleSignup}>
                     <Text style={styles.textButtonRegister}>Cadastrar</Text>
